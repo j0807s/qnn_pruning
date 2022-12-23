@@ -20,7 +20,8 @@ class DownsampledMNIST:
     def preprocessing(self):
         samples = []
         for i in range(len(self.X)):
-            img = skimage.measure.block_reduce(self.X[i], 4, np.mean)
+            img = self.X[i].reshape(8,8)
+            img = skimage.measure.block_reduce(img, (2,2), np.mean)
             img = img.flatten()
             samples.append(img)
         
@@ -36,14 +37,24 @@ class DownsampledMNIST:
 
     def class_selection(self):
         datas, labels = [], []
+
+        for i in range(len(self.X)):
+            for item in self.classes:
+                if self.Y[i] == item:
+                    datas.append(self.X[i])
+                    labels.append(self.Y[i])
+
+        """
         for item in self.classes:
             data = self.X[np.array(self.Y) == item]
             datas.append(data)
             labels.append(np.full((data.shape[0]), item))
 
+    
         X, Y = self.concatenate(datas, labels)
-        self.X = X
-        self.Y = Y
+        """
+        self.X = np.array(datas)
+        self.Y = np.array(labels)
 
 if __name__ == "__main__":
     classes = [3, 6, 7]

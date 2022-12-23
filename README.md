@@ -13,15 +13,15 @@
 
 ### Setup
 ```bash
-conda env create -f qml.yaml
+conda env create -f pennylane.yaml
 ```
 
 ## Reproduce
 * 
 
 ```bash
-sh run_org_all.py
-sh run_pruning_all.py
+sh run_org.sh
+sh run_pruning.sh
 ```
 
 ## Results

@@ -5,7 +5,7 @@ import pennylane as qml
 # Option 1: PauliX; Option 2: PauliY; Option 3: PauliZ
 # ========================================================================================
 
-class Measurement:
+class MeasurementMethod:
     def __init__(self, option = None, qubit = None):
         self.options = [1, 2, 3]
         assert option in self.options
