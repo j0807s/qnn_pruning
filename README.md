@@ -17,13 +17,13 @@ conda env create -f pennylane.yaml
 ```
 
 ## Reproduce
-* 
-
 ```bash
-sh run_org.sh
-sh run_pruning.sh
+sh run_org_all.sh
+sh run_pruning_all.sh
 ```
 
 ## Results
-* 
-* 
+* The above shell scripts save the best performance and the training time of the model
+
+* output_org.txt 
+* output_pruning.txt
